@@ -55,9 +55,20 @@ const restaurantInfo = {
 };
 
 export default function ChatWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: `Hi! Welcome to ${restaurantInfo.name} 👋 How can I help you today?` }
+    {
+      role: "assistant",
+      content: `Welcome to Hemenway's Restaurant! 🦞 I'm here to help you with:
+
+- 📅 Reservations & booking
+- 🍽️ Menu & dish recommendations
+- 🚗 Hours, location & parking
+- 🎉 Private events & special occasions
+- 🥡 Takeout, curbside & delivery
+
+What can I help you with today?`
+    }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -145,8 +156,9 @@ export default function ChatWidget() {
                     color: msg.role === "user" ? "#e8f4f8" : "#1a3a4a",
                     padding: "9px 13px",
                     borderRadius: msg.role === "user" ? "16px 16px 2px 16px" : "16px 16px 16px 2px",
-                    maxWidth: "210px", fontSize: "13px", lineHeight: "1.5",
-                    boxShadow: "0 1px 4px rgba(0,0,0,0.07)"
+                    maxWidth: "220px", fontSize: "13px", lineHeight: "1.6",
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
+                    whiteSpace: "pre-line"
                   }}>
                     {msg.content}
                   </div>
