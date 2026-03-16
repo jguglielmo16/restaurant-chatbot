@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const restaurantInfo = {
   name: "Demo Restaurant",
@@ -21,6 +21,11 @@ export default function ChatWidget() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -120,6 +125,7 @@ export default function ChatWidget() {
                   }}>Typing...</div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
 
             <div style={{
