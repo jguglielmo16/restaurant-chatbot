@@ -7,11 +7,35 @@ const restaurantInfo = {
   hours: "Monday through Saturday 11:30am–10pm, Sunday 11:30am–9pm",
   address: "121 S Main St, Providence, RI 02903",
   phone: "(401) 351-8570",
-  cuisine: "Fresh seafood and raw bar",
+  cuisine: "Fresh seafood, raw bar, and chop house",
   priceRange: "$$$",
-  parking: "Street parking available on S Main St. Several paid parking garages within walking distance in downtown Providence.",
+  parking: "Hemenway's has complimentary parking at dinner in their parking garage. Street parking is also available on S Main St nearby.",
   reservationLink: "https://www.opentable.com/booking/restref/availability?rid=2062&restref=2062&lang=en-US&color=1&r3uid=cfe&dark=false&partysize=2&datetime=2026-03-16T19%3A00",
-  specialNotes: "Hemenway's is Providence's premier seafood destination, known for the freshest local catch including Rhode Island-style calamari, raw bar selections, lobster, and daily fresh fish specials. Great for business dinners, date nights, and special occasions. Located in the heart of downtown Providence."
+  specialNotes: `
+    ABOUT: Hemenway's has been Providence's premier seafood destination since 1985. Located on the Providence River with scenic skyline views. Wine Spectator Award of Excellence winner since 2012. Part of the Newport Restaurant Group.
+
+    SIGNATURE DISHES: Rhode Island-style calamari, Shellfish Platter from the Raw Bar, Baked Stuffed Lobster, Lobster Mac & Cheese (whole lobster, cavatappi pasta, Vermont white cheddar), Pan Roasted Salmon, Whole Roasted Fish of the Day, Seafood Paella, Yellowfin Tartare, Seafood Casserole. Fish can be prepared baked, grilled, pan-seared, or pan-blackened. Oscar style available (lump crab, hollandaise, asparagus) for add $10.
+
+    HAPPY HOUR: Handroll Happy Hour every Monday through Friday 3pm–5pm in the bar and raw bar area. In-house only, not available for takeout.
+
+    POWER LUNCH: Available Monday through Friday 11:30am–3pm. Two-course lunch plus coffee and freshly-baked cookie for $32 per person (plus tax and gratuity).
+
+    KIDS MENU: Yes, Hemenway's has a dedicated kids menu with chicken tenders, pasta, grilled cheese, and baked cod.
+
+    PRIVATE DINING & EVENTS: Private room available for special events. Contact the restaurant directly for private dining and catering inquiries. Their team of event professionals will help make your event memorable.
+
+    SPECIAL OCCASIONS: Staff regularly accommodates special occasion requests including anniversary rose petals and complimentary desserts. Call ahead to arrange.
+
+    DIETARY: Gluten-free options available. Please notify your server of any food allergies.
+
+    REWARDS: Join the Newport Restaurant Group Fare Rewards program. Earn points with every visit — every 200 points earns a $15 reward credit. Download the Newport Restaurant Group Fare Rewards app.
+
+    GIFT CARDS: Newport Restaurant Group gift cards accepted and can be used at Hemenway's and many other Newport Restaurant Group locations including Waterman Grille, Castle Hill Inn, 22 Bowen's, The Mooring, and more.
+
+    LOCATION HIGHLIGHTS: Close to PPAC, RISD Museum, Waterfire, Brown University, Johnson & Wales, downtown hotels, and the RI Convention Center. Perfect for pre-show dinners and convention visitors.
+
+    SEAFOOD SOURCING: Locally sourced from New Bedford, Boston, Gloucester, Point Judith, and Rockland Maine. Partners include Watch Hill Oysters, Foley Fish, Andrade's Catch, and more.
+  `
 };
 
 export default function ChatWidget() {
