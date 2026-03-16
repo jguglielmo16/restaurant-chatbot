@@ -9,28 +9,44 @@ const restaurantInfo = {
   phone: "(401) 351-8570",
   cuisine: "Fresh seafood, raw bar, and chop house",
   priceRange: "$$$",
-  parking: "Hemenway's has complimentary parking at dinner in their parking garage. Street parking is also available on S Main St nearby.",
+  parking: "At lunch Monday–Friday: discounted parking in our garage for $6 (3 hours). At dinner and on weekends: complimentary parking in the garage for up to 3 hours.",
   reservationLink: "https://www.opentable.com/booking/restref/availability?rid=2062&restref=2062&lang=en-US&color=1&r3uid=cfe&dark=false&partysize=2&datetime=2026-03-16T19%3A00",
+  orderTakeout: "https://newportrestaurantgroup.olo.com/menu/hemenways?handoff=counterpickup",
+  orderCurbside: "https://newportrestaurantgroup.olo.com/menu/hemenways?handoff=curbsidepickup",
+  orderDelivery: "https://newportrestaurantgroup.olo.com/menu/hemenways?handoff=delivery",
+  orderCatering: "https://newportrestaurantgroupcatering.olo.com/menu/hemenways",
   specialNotes: `
-    ABOUT: Hemenway's has been Providence's premier seafood destination since 1985. Located on the Providence River with scenic skyline views. Wine Spectator Award of Excellence winner since 2012. Part of the Newport Restaurant Group.
+    ABOUT: Hemenway's has been Providence's premier seafood destination since 1985. Located on the Providence River with scenic skyline views. Wine Spectator Award of Excellence winner since 2012. Part of the Newport Restaurant Group, which is 100% employee-owned.
 
-    SIGNATURE DISHES: Rhode Island-style calamari, Shellfish Platter from the Raw Bar, Baked Stuffed Lobster, Lobster Mac & Cheese (whole lobster, cavatappi pasta, Vermont white cheddar), Pan Roasted Salmon, Whole Roasted Fish of the Day, Seafood Paella, Yellowfin Tartare, Seafood Casserole. Fish can be prepared baked, grilled, pan-seared, or pan-blackened. Oscar style available (lump crab, hollandaise, asparagus) for add $10.
+    MOST POPULAR DISH: Paella — a flavorful Spanish rice dish with swordfish, shrimp, scallops, mussels, clams and linguica.
+
+    OTHER SIGNATURE DISHES: Rhode Island-style calamari, Shellfish Platter from the Raw Bar, Baked Stuffed Lobster, Lobster Mac & Cheese (whole lobster, cavatappi pasta, Vermont white cheddar), Pan Roasted Salmon, Whole Roasted Fish of the Day, Seafood Casserole, Yellowfin Tartare. Fish can be prepared baked, grilled, pan-seared, or pan-blackened. Oscar style available (lump crab, hollandaise, asparagus) for add $10.
+
+    GLUTEN FREE: We don't have a separate gluten free menu because most items can be prepared gluten free. Please let your server know when you arrive so we can give personal attention to your dietary needs.
+
+    DRESS CODE: Business casual. Collared shirts for men, jeans are fine. No workout clothes, sweatpants, or sleeveless shirts on men. Please remove hats.
+
+    KIDS MENU: Yes! Kids menu includes pasta, burger, fish and chips, and chicken fingers. For well-behaved children.
+
+    DOGS: Well-behaved, friendly dogs are permitted on the patio when on leash. Patio is open when staffed and weather permits.
+
+    NOISE LEVEL: Hemenway's has 22-foot ceilings and fills the dining room nightly — it is a lively, bustling atmosphere. It's a bit quieter after 8pm and during the afternoon around 3pm.
+
+    RESTAURANT NAME: Named after Charles Martin Hemenway, the late grandfather of founder Ned Grace.
 
     HAPPY HOUR: Handroll Happy Hour every Monday through Friday 3pm–5pm in the bar and raw bar area. In-house only, not available for takeout.
 
     POWER LUNCH: Available Monday through Friday 11:30am–3pm. Two-course lunch plus coffee and freshly-baked cookie for $32 per person (plus tax and gratuity).
 
-    KIDS MENU: Yes, Hemenway's has a dedicated kids menu with chicken tenders, pasta, grilled cheese, and baked cod.
-
-    PRIVATE DINING & EVENTS: Private room available for special events. Contact the restaurant directly for private dining and catering inquiries. Their team of event professionals will help make your event memorable.
+    PRIVATE DINING & EVENTS: Private room available for special events. Contact the restaurant directly for private dining and catering inquiries.
 
     SPECIAL OCCASIONS: Staff regularly accommodates special occasion requests including anniversary rose petals and complimentary desserts. Call ahead to arrange.
 
-    DIETARY: Gluten-free options available. Please notify your server of any food allergies.
+    FARE REWARDS: Join the Newport Restaurant Group Fare Rewards program. Earn points with every visit — every 200 points earns a $15 reward credit. Download the Newport Restaurant Group Fare Rewards app. If you forgot to use your rewards during a visit, you can add your check retroactively via the app using the ADD CHECK feature in the sidebar.
 
-    REWARDS: Join the Newport Restaurant Group Fare Rewards program. Earn points with every visit — every 200 points earns a $15 reward credit. Download the Newport Restaurant Group Fare Rewards app.
+    GIFT CARDS: Newport Restaurant Group gift cards available for purchase at the restaurant and online. Can be used at Hemenway's and other Newport Restaurant Group locations including Waterman Grille, Castle Hill Inn, 22 Bowen's, The Mooring, and more.
 
-    GIFT CARDS: Newport Restaurant Group gift cards accepted and can be used at Hemenway's and many other Newport Restaurant Group locations including Waterman Grille, Castle Hill Inn, 22 Bowen's, The Mooring, and more.
+    ORDERING: Takeout, curbside, lunch delivery, and catering are all available online.
 
     LOCATION HIGHLIGHTS: Close to PPAC, RISD Museum, Waterfire, Brown University, Johnson & Wales, downtown hotels, and the RI Convention Center. Perfect for pre-show dinners and convention visitors.
 
