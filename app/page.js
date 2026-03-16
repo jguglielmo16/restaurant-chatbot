@@ -2,16 +2,16 @@
 import { useState, useEffect, useRef } from "react";
 
 const restaurantInfo = {
-  name: "Demo Restaurant",
+  name: "Hemenway's Restaurant",
   location: "Providence, Rhode Island",
-  hours: "Monday-Thursday 11am-10pm, Friday-Saturday 11am-11pm, Sunday 10am-9pm",
-  address: "123 Main Street, Providence, RI 02903",
-  phone: "(401) 555-0123",
-  cuisine: "Contemporary American",
-  priceRange: "$$-$$$",
-  parking: "Street parking available. Validated parking at the Westminster Street garage.",
-  reservationLink: "https://resy.com/cities/prov/demo-restaurant",
-  specialNotes: "We offer a gluten-free menu upon request. Happy hour Monday-Friday 4-6pm. Private dining room available for groups of 10+."
+  hours: "Monday through Saturday 11:30am–10pm, Sunday 11:30am–9pm",
+  address: "121 S Main St, Providence, RI 02903",
+  phone: "(401) 351-8570",
+  cuisine: "Fresh seafood and raw bar",
+  priceRange: "$$$",
+  parking: "Street parking available on S Main St. Several paid parking garages within walking distance in downtown Providence.",
+  reservationLink: "https://www.opentable.com/booking/restref/availability?rid=2062&restref=2062&lang=en-US&color=1&r3uid=cfe&dark=false&partysize=2&datetime=2026-03-16T19%3A00",
+  specialNotes: "Hemenway's is Providence's premier seafood destination, known for the freshest local catch including Rhode Island-style calamari, raw bar selections, lobster, and daily fresh fish specials. Great for business dinners, date nights, and special occasions. Located in the heart of downtown Providence."
 };
 
 export default function ChatWidget() {
@@ -62,31 +62,31 @@ export default function ChatWidget() {
           }}>
 
             <div style={{
-              background: "#2c1a0e", padding: "14px 16px",
+              background: "#1a3a4a", padding: "14px 16px",
               display: "flex", alignItems: "center", gap: "10px"
             }}>
               <div style={{
                 width: "36px", height: "36px", borderRadius: "50%",
                 background: "rgba(255,255,255,0.15)", display: "flex",
                 alignItems: "center", justifyContent: "center", fontSize: "18px"
-              }}>🍽️</div>
+              }}>🦞</div>
               <div style={{ flex: 1 }}>
-                <div style={{ color: "#f5e6d0", fontSize: "14px", fontWeight: "bold" }}>
+                <div style={{ color: "#e8f4f8", fontSize: "14px", fontWeight: "bold" }}>
                   {restaurantInfo.name}
                 </div>
-                <div style={{ color: "rgba(245,230,208,0.7)", fontSize: "11px" }}>
+                <div style={{ color: "rgba(232,244,248,0.7)", fontSize: "11px" }}>
                   Typically replies instantly
                 </div>
               </div>
               <button onClick={() => setIsOpen(false)} style={{
-                background: "none", border: "none", color: "#f5e6d0",
+                background: "none", border: "none", color: "#e8f4f8",
                 fontSize: "20px", cursor: "pointer", padding: "0 4px", lineHeight: 1
               }}>×</button>
             </div>
 
             <div style={{
               height: "300px", overflowY: "auto", padding: "14px",
-              background: "#fdf8f2", display: "flex", flexDirection: "column", gap: "10px"
+              background: "#f2f8fb", display: "flex", flexDirection: "column", gap: "10px"
             }}>
               {messages.map((msg, i) => (
                 <div key={i} style={{
@@ -96,13 +96,13 @@ export default function ChatWidget() {
                   {msg.role === "assistant" && (
                     <div style={{
                       width: "26px", height: "26px", borderRadius: "50%",
-                      background: "#2c1a0e", display: "flex", alignItems: "center",
+                      background: "#1a3a4a", display: "flex", alignItems: "center",
                       justifyContent: "center", fontSize: "12px", flexShrink: 0
-                    }}>🍽️</div>
+                    }}>🦞</div>
                   )}
                   <div style={{
-                    background: msg.role === "user" ? "#2c1a0e" : "#fff",
-                    color: msg.role === "user" ? "#f5e6d0" : "#2c1a0e",
+                    background: msg.role === "user" ? "#1a3a4a" : "#fff",
+                    color: msg.role === "user" ? "#e8f4f8" : "#1a3a4a",
                     padding: "9px 13px",
                     borderRadius: msg.role === "user" ? "16px 16px 2px 16px" : "16px 16px 16px 2px",
                     maxWidth: "210px", fontSize: "13px", lineHeight: "1.5",
@@ -116,12 +116,12 @@ export default function ChatWidget() {
                 <div style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
                   <div style={{
                     width: "26px", height: "26px", borderRadius: "50%",
-                    background: "#2c1a0e", display: "flex", alignItems: "center",
+                    background: "#1a3a4a", display: "flex", alignItems: "center",
                     justifyContent: "center", fontSize: "12px"
-                  }}>🍽️</div>
+                  }}>🦞</div>
                   <div style={{
                     background: "#fff", padding: "9px 13px", borderRadius: "16px 16px 16px 2px",
-                    fontSize: "13px", color: "#9c8570"
+                    fontSize: "13px", color: "#7a9aaa"
                   }}>Typing...</div>
                 </div>
               )}
@@ -130,7 +130,7 @@ export default function ChatWidget() {
 
             <div style={{
               display: "flex", padding: "12px", background: "#fff",
-              borderTop: "1px solid #e0d6c8", gap: "8px"
+              borderTop: "1px solid #d0e8f0", gap: "8px"
             }}>
               <input
                 value={input}
@@ -139,12 +139,12 @@ export default function ChatWidget() {
                 placeholder="Type a message..."
                 style={{
                   flex: 1, padding: "9px 14px", borderRadius: "20px",
-                  border: "1px solid #e0d6c8", fontSize: "13px",
+                  border: "1px solid #d0e8f0", fontSize: "13px",
                   outline: "none", fontFamily: "Georgia, serif"
                 }}
               />
               <button onClick={sendMessage} style={{
-                background: "#2c1a0e", color: "#f5e6d0", border: "none",
+                background: "#1a3a4a", color: "#e8f4f8", border: "none",
                 borderRadius: "50%", width: "36px", height: "36px",
                 cursor: "pointer", fontSize: "16px", flexShrink: 0
               }}>→</button>
@@ -154,11 +154,11 @@ export default function ChatWidget() {
 
         <button onClick={() => setIsOpen(!isOpen)} style={{
           width: "56px", height: "56px", borderRadius: "50%",
-          background: "#2c1a0e", border: "none", cursor: "pointer",
+          background: "#1a3a4a", border: "none", cursor: "pointer",
           fontSize: "24px", boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
           display: "flex", alignItems: "center", justifyContent: "center"
         }}>
-          {isOpen ? "×" : "🍽️"}
+          {isOpen ? "×" : "🦞"}
         </button>
 
       </div>
