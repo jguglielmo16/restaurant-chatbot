@@ -72,11 +72,26 @@ What can I help you with today?`
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 600);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      setTimeout(() => inputRef.current?.focus(), 300);
+    }
+  }, [isOpen]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -97,8 +112,44 @@ What can I help you with today?`
     setLoading(false);
   };
 
+  const chatWindowStyle = isMobile ? {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: "100%",
+    borderRadius: "16px 16px 0 0",
+    maxHeight: "85vh",
+    display: "flex",
+    flexDirection: "column",
+    background: "#fff",
+    boxShadow: "0 -4px 32px rgba(0,0,0,0.18)",
+    border: "1px solid #e0d6c8",
+    zIndex: 9999,
+  } : {
+    width: "340px",
+    background: "#fff",
+    borderRadius: "16px",
+    overflow: "hidden",
+    boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+    border: "1px solid #e0d6c8",
+    display: "flex",
+    flexDirection: "column",
+  };
+
   return (
     <>
+      {isMobile && isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          style={{
+            position: "fixed", inset: 0,
+            background: "rgba(0,0,0,0.3)",
+            zIndex: 9998
+          }}
+        />
+      )}
+
       <div style={{
         position: "fixed", bottom: "24px", right: "24px",
         display: "flex", flexDirection: "column", alignItems: "flex-end",
@@ -106,15 +157,12 @@ What can I help you with today?`
       }}>
 
         {isOpen && (
-          <div style={{
-            width: "340px", background: "#fff", borderRadius: "16px",
-            overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-            border: "1px solid #e0d6c8", display: "flex", flexDirection: "column"
-          }}>
+          <div style={chatWindowStyle}>
 
             <div style={{
               background: "#1a3a4a", padding: "14px 16px",
-              display: "flex", alignItems: "center", gap: "10px"
+              display: "flex", alignItems: "center", gap: "10px",
+              flexShrink: 0
             }}>
               <div style={{
                 width: "36px", height: "36px", borderRadius: "50%",
@@ -131,13 +179,21 @@ What can I help you with today?`
               </div>
               <button onClick={() => setIsOpen(false)} style={{
                 background: "none", border: "none", color: "#e8f4f8",
-                fontSize: "20px", cursor: "pointer", padding: "0 4px", lineHeight: 1
+                fontSize: "24px", cursor: "pointer", padding: "0 4px",
+                lineHeight: 1, minWidth: "36px", minHeight: "36px"
               }}>×</button>
             </div>
 
             <div style={{
-              height: "300px", overflowY: "auto", padding: "14px",
-              background: "#f2f8fb", display: "flex", flexDirection: "column", gap: "10px"
+              flex: 1,
+              overflowY: "auto",
+              padding: "14px",
+              background: "#f2f8fb",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              minHeight: isMobile ? "200px" : "300px",
+              maxHeight: isMobile ? "55vh" : "300px",
             }}>
               {messages.map((msg, i) => (
                 <div key={i} style={{
@@ -156,7 +212,9 @@ What can I help you with today?`
                     color: msg.role === "user" ? "#e8f4f8" : "#1a3a4a",
                     padding: "9px 13px",
                     borderRadius: msg.role === "user" ? "16px 16px 2px 16px" : "16px 16px 16px 2px",
-                    maxWidth: "220px", fontSize: "13px", lineHeight: "1.6",
+                    maxWidth: isMobile ? "75%" : "210px",
+                    fontSize: isMobile ? "15px" : "13px",
+                    lineHeight: "1.6",
                     boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
                     whiteSpace: "pre-line"
                   }}>
@@ -172,7 +230,8 @@ What can I help you with today?`
                     justifyContent: "center", fontSize: "12px"
                   }}>🦞</div>
                   <div style={{
-                    background: "#fff", padding: "9px 13px", borderRadius: "16px 16px 16px 2px",
+                    background: "#fff", padding: "9px 13px",
+                    borderRadius: "16px 16px 16px 2px",
                     fontSize: "13px", color: "#7a9aaa"
                   }}>Typing...</div>
                 </div>
@@ -181,37 +240,44 @@ What can I help you with today?`
             </div>
 
             <div style={{
-              display: "flex", padding: "12px", background: "#fff",
-              borderTop: "1px solid #d0e8f0", gap: "8px"
+              display: "flex", padding: isMobile ? "14px" : "12px",
+              background: "#fff", borderTop: "1px solid #d0e8f0",
+              gap: "8px", flexShrink: 0
             }}>
               <input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                 placeholder="Type a message..."
                 style={{
-                  flex: 1, padding: "9px 14px", borderRadius: "20px",
-                  border: "1px solid #d0e8f0", fontSize: "13px",
+                  flex: 1, padding: isMobile ? "12px 16px" : "9px 14px",
+                  borderRadius: "20px", border: "1px solid #d0e8f0",
+                  fontSize: isMobile ? "16px" : "13px",
                   outline: "none", fontFamily: "Georgia, serif"
                 }}
               />
               <button onClick={sendMessage} style={{
                 background: "#1a3a4a", color: "#e8f4f8", border: "none",
-                borderRadius: "50%", width: "36px", height: "36px",
+                borderRadius: "50%",
+                width: isMobile ? "44px" : "36px",
+                height: isMobile ? "44px" : "36px",
                 cursor: "pointer", fontSize: "16px", flexShrink: 0
               }}>→</button>
             </div>
           </div>
         )}
 
-        <button onClick={() => setIsOpen(!isOpen)} style={{
-          width: "56px", height: "56px", borderRadius: "50%",
-          background: "#1a3a4a", border: "none", cursor: "pointer",
-          fontSize: "24px", boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-          display: "flex", alignItems: "center", justifyContent: "center"
-        }}>
-          {isOpen ? "×" : "🦞"}
-        </button>
+        {!isMobile && (
+          <button onClick={() => setIsOpen(!isOpen)} style={{
+            width: "56px", height: "56px", borderRadius: "50%",
+            background: "#1a3a4a", border: "none", cursor: "pointer",
+            fontSize: "24px", boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
+            display: "flex", alignItems: "center", justifyContent: "center"
+          }}>
+            {isOpen ? "×" : "🦞"}
+          </button>
+        )}
 
       </div>
     </>
