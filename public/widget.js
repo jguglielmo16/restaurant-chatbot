@@ -2,7 +2,7 @@
   if (document.getElementById('beacon-studios-widget')) return;
 
   const BOT_URL = window.BeaconStudiosConfig?.botUrl || 
-    'https://restaurant-chatbot-xxxx.vercel.app';
+    'https://restaurant-chatbot-eight.vercel.app';
 
   const style = document.createElement('style');
   style.textContent = `
@@ -42,25 +42,20 @@
     }
   `;
   document.head.appendChild(style);
-
   const wrapper = document.createElement('div');
   wrapper.id = 'beacon-studios-widget';
-
   const frameWrapper = document.createElement('div');
   frameWrapper.id = 'beacon-studios-frame-wrapper';
-
   const iframe = document.createElement('iframe');
   iframe.id = 'beacon-studios-iframe';
   iframe.src = BOT_URL + '/embed';
   iframe.title = 'Chat Assistant';
   iframe.allow = 'microphone';
   frameWrapper.appendChild(iframe);
-
   const launcher = document.createElement('button');
   launcher.id = 'beacon-studios-launcher';
   launcher.setAttribute('aria-label', 'Open chat');
   launcher.innerHTML = window.BeaconStudiosConfig?.emoji || '🍽️';
-
   let isOpen = true;
   launcher.addEventListener('click', () => {
     isOpen = !isOpen;
@@ -74,12 +69,10 @@
       launcher.setAttribute('aria-label', 'Open chat');
     }
   });
-
   setTimeout(() => {
     frameWrapper.classList.add('open');
     launcher.innerHTML = '✕';
   }, 1000);
-
   wrapper.appendChild(frameWrapper);
   wrapper.appendChild(launcher);
   document.body.appendChild(wrapper);
